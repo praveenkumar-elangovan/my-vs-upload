@@ -1,0 +1,290 @@
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=DM+Sans:wght@400;500;700&display=swap");
+
+/* ShopEase checkout — ticket / receipt look
+   Palette: cobalt #2338E0 · marigold #FFC531 · mint #C6F2DC · paper #FBFAFF · ink #14163A */
+
+.co-page {
+  --cobalt: #2338e0;
+  --marigold: #ffc531;
+  --mint: #c6f2dc;
+  --paper: #fbfaff;
+  --ink: #14163a;
+  --alert: #d9381e;
+
+  font-family: "DM Sans", system-ui, sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  min-height: 100vh;
+  padding: 56px 24px 88px;
+}
+
+.co-inner {
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.co-title {
+  display: inline-block;
+  margin: 0 0 36px -6px;
+  padding: 0 6px;
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-weight: 800;
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  background: linear-gradient(transparent 62%, var(--marigold) 62% 92%, transparent 92%);
+}
+
+/* ---------- Back link ---------- */
+
+.co-back {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 28px;
+  padding: 10px 20px;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--ink);
+  background: #fff;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  box-shadow: 3px 3px 0 var(--marigold);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.co-back::before {
+  content: "←";
+}
+
+.co-back:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 var(--marigold);
+}
+
+.co-back:active {
+  transform: translate(3px, 3px);
+  box-shadow: 0 0 0 var(--marigold);
+}
+
+.co-back:focus-visible {
+  outline: 3px solid var(--cobalt);
+  outline-offset: 3px;
+}
+
+/* ---------- Ticket ---------- */
+
+.co-ticket {
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+  border: 3px solid var(--ink);
+  border-radius: 22px;
+  box-shadow: 10px 10px 0 var(--cobalt);
+}
+
+.co-items {
+  margin: 0;
+  padding: 12px 28px 8px;
+  list-style: none;
+}
+
+.co-item {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: baseline;
+  gap: 16px;
+  padding: 16px 0;
+}
+
+.co-item + .co-item {
+  border-top: 1px solid rgba(20, 22, 58, 0.15);
+}
+
+.co-item-name {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-weight: 800;
+  font-size: 1.15rem;
+  overflow-wrap: anywhere;
+}
+
+.co-item-qty {
+  padding: 2px 12px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  background: var(--mint);
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+}
+
+.co-item-price {
+  min-width: 80px;
+  text-align: right;
+  font-weight: 700;
+}
+
+/* ---------- Stub (below the tear line) ---------- */
+
+.co-stub {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 32px 28px 28px;
+  margin-top: 16px;
+  background: var(--marigold);
+  border-top: 3px dashed var(--ink);
+}
+
+/* half-circle notches on both sides of the tear line */
+.co-stub::before,
+.co-stub::after {
+  content: "";
+  position: absolute;
+  top: -17px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 3px solid var(--ink);
+}
+
+.co-stub::before {
+  left: -18px;
+}
+
+.co-stub::after {
+  right: -18px;
+}
+
+.co-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.co-total span {
+  font-weight: 700;
+}
+
+.co-total strong {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-weight: 800;
+  font-size: 2.4rem;
+  letter-spacing: -0.02em;
+}
+
+.co-error {
+  margin: 0;
+  padding: 12px 16px;
+  font-weight: 700;
+  color: var(--alert);
+  background: #fff;
+  border: 2px solid var(--alert);
+  border-radius: 12px;
+}
+
+.co-note {
+  margin: 0;
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+/* ---------- Buttons ---------- */
+
+.co-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 24px;
+  font: inherit;
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: #fff;
+  background: var(--cobalt);
+  border: 2px solid var(--ink);
+  border-radius: 14px;
+  box-shadow: 5px 5px 0 var(--ink);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.co-btn:hover:not(:disabled) {
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0 var(--ink);
+}
+
+.co-btn:active:not(:disabled) {
+  transform: translate(4px, 4px);
+  box-shadow: 1px 1px 0 var(--ink);
+}
+
+.co-btn:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 4px;
+}
+
+.co-btn:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+/* ---------- Empty state ---------- */
+
+.co-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 48px 28px;
+  text-align: center;
+  font-size: 1.15rem;
+  font-weight: 500;
+  background: #fff;
+  border: 2px dashed var(--ink);
+  border-radius: 20px;
+}
+
+.co-state p {
+  margin: 0;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 520px) {
+  .co-page {
+    padding: 36px 16px 64px;
+  }
+
+  .co-items {
+    padding: 8px 18px;
+  }
+
+  .co-stub {
+    padding: 28px 18px 22px;
+  }
+
+  .co-item {
+    grid-template-columns: 1fr auto;
+  }
+
+  .co-item-qty {
+    grid-row: 2;
+    justify-self: start;
+  }
+
+  .co-item-price {
+    grid-row: 1 / span 2;
+    grid-column: 2;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .co-btn,
+  .co-back {
+    transition: none;
+  }
+}

@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { loginSuccess } from "../redux/authSlice";
 import { useNavigate, Link } from "react-router-dom";
+import "./Login.css";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -53,36 +54,65 @@ function Login() {
   };
 
   return (
-    <div>
-      <h1>Login</h1>
+    <div id="login-container" className="login-container">
 
-      <form onSubmit={handleLogin}>
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
+      <div id="login-card" className="login-card">
 
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
+        <h1 id="login-title" className="login-title">
+          Login
+        </h1>
 
-        <button type="submit" disabled={loading}>
-          {loading ? "Logging in..." : "Login"}
-        </button>
-      </form>
+        <p id="login-subtitle" className="login-subtitle">
+          Welcome back! Please login to your account.
+        </p>
 
-      {error && <p>{error}</p>}
+        <form id="login-form" className="login-form" onSubmit={handleLogin}>
 
-      <p>
-        Don't have an account? <Link to="/register">Register</Link>
-      </p>
+          <input
+            id="login-email"
+            className="login-email"
+            type="email"
+            placeholder="Enter your email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+
+          <input
+            id="login-password"
+            className="login-password"
+            type="password"
+            placeholder="Enter your password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+
+          <button
+            id="login-button"
+            className="login-button"
+            type="submit"
+            disabled={loading}
+          >
+            {loading ? "Logging in..." : "Login"}
+          </button>
+
+        </form>
+
+        {error && (
+          <p id="login-error" className="login-error">
+            {error}
+          </p>
+        )}
+
+        <p id="login-footer" className="login-footer">
+          Don't have an account?{" "}
+          <Link id="register-link" className="register-link" to="/register">
+            Register
+          </Link>
+        </p>
+
+      </div>
     </div>
   );
 }

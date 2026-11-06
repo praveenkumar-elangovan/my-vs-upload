@@ -1,0 +1,23 @@
+
+/* PREMIUM TESTIMONIAL SECTION */
+
+.testimonials-section {
+  width: calc(100% - 44px);
+  max-width: 1500px;
+  margin: 25px auto;
+  padding: 30px;
+  border-radius: 12px;
+  background: white;
+}
+
+.testimonial-card {
+  border: 1px solid #eeeeee;
+  border-radius: 12px;
+  padding: 22px;
+  transition: .3s;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,.07);
+}

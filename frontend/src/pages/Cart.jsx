@@ -1,4 +1,3 @@
-
 import { useDispatch, useSelector } from "react-redux";
 import {
   removeFromCart,
@@ -7,13 +6,12 @@ import {
   clearCart,
 } from "../redux/cartSlice";
 import { Link } from "react-router-dom";
+import "./cart.css";
 
 function Cart() {
   const dispatch = useDispatch();
 
-  const cartItems = useSelector(
-    (state) => state.cart.items
-  );
+  const cartItems = useSelector((state) => state.cart.items);
 
   const total = cartItems.reduce(
     (sum, item) => sum + item.price * item.quantity,
@@ -21,63 +19,91 @@ function Cart() {
   );
 
   return (
-    <div>
-      <h1>Shopping Cart</h1>
+    <div className="cart-page">
+      <div className="cart-inner">
+        <header className="cart-header">
+          <h1 className="cart-title">Shopping Cart</h1>
+          <span className="cart-count">
+            {cartItems.length} {cartItems.length === 1 ? "item" : "items"}
+          </span>
+        </header>
 
-      <p>Cart Items: {cartItems.length}</p>
+        {cartItems.length === 0 ? (
+          <div className="cart-state">
+            <p>Your cart is empty.</p>
+            <Link to="/products" className="cart-btn">
+              Browse Products
+            </Link>
+          </div>
+        ) : (
+          <div className="cart-layout">
+            <div className="cart-list">
+              {cartItems.map((item) => (
+                <div className="cart-item" key={item._id}>
+                  <div className="cart-item-info">
+                    <h3>{item.name}</h3>
+                    <p>₹{item.price} each</p>
+                  </div>
 
-      {cartItems.length === 0 ? (
-        <p>Your cart is empty.</p>
-      ) : (
-        <>
-          {cartItems.map((item) => (
-            <div key={item._id}>
-              <h3>{item.name}</h3>
-              <p>Price: ₹{item.price}</p>
+                  <div className="cart-qty">
+                    <button
+                      aria-label={`Decrease quantity of ${item.name}`}
+                      onClick={() => dispatch(decreaseQuantity(item._id))}
+                    >
+                      −
+                    </button>
 
-              <button
-                onClick={() =>
-                  dispatch(decreaseQuantity(item._id))
-                }
-              >
-                -
-              </button>
+                    <span>{item.quantity}</span>
 
-              <span> {item.quantity} </span>
+                    <button
+                      aria-label={`Increase quantity of ${item.name}`}
+                      onClick={() => dispatch(increaseQuantity(item._id))}
+                    >
+                      +
+                    </button>
+                  </div>
 
-              <button
-                onClick={() =>
-                  dispatch(increaseQuantity(item._id))
-                }
-              >
-                +
-              </button>
+                  <div className="cart-subtotal">
+                    ₹{item.price * item.quantity}
+                  </div>
 
-              <p>
-                Subtotal: ₹{item.price * item.quantity}
-              </p>
-
-              <button
-                onClick={() =>
-                  dispatch(removeFromCart(item._id))
-                }
-              >
-                Remove
-              </button>
-
-              <hr />
+                  <button
+                    className="cart-remove"
+                    onClick={() => dispatch(removeFromCart(item._id))}
+                  >
+                    Remove
+                  </button>
+                </div>
+              ))}
             </div>
-          ))}
 
-          <h2>Total: ₹{total}</h2>
+            <aside className="cart-summary">
+              <h2>Bill</h2>
 
-          <button onClick={() => dispatch(clearCart())}>
-            Clear Cart
-          </button>
+              <div className="cart-summary-row">
+                <span>Items</span>
+                <span>{cartItems.length}</span>
+              </div>
 
-          <Link to="/checkout">Proceed to Checkout</Link>
-        </>
-      )}
+              <div className="cart-summary-total">
+                <span>Total</span>
+                <strong>₹{total}</strong>
+              </div>
+
+              <Link to="/checkout" className="cart-btn">
+                Proceed to Checkout
+              </Link>
+
+              <button
+                className="cart-clear"
+                onClick={() => dispatch(clearCart())}
+              >
+                Clear Cart
+              </button>
+            </aside>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

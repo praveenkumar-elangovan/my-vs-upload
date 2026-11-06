@@ -1,4 +1,3 @@
-
 import {
   BrowserRouter,
   Routes,
@@ -19,6 +18,8 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Checkout from "./pages/Checkout";
 import Orders from "./pages/Orders";
+import Subscription from "./pages/Subscription";
+import Favorites from "./pages/Favorites";
 
 
 function AppRoutes() {
@@ -34,6 +35,7 @@ function AppRoutes() {
           <Route path="/products" element={<Products />} />
           <Route path="/products/:id" element={<ProductDetails />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/favorites" element={<Favorites />} />
 
           <Route
             path="/login"
@@ -56,6 +58,13 @@ function AppRoutes() {
             path="/orders"
             element={
               token ? <Orders /> : <Navigate to="/login" replace />
+            }
+          />
+
+          <Route
+            path="/subscription"
+            element={
+              token ? <Subscription /> : <Navigate to="/login" replace />
             }
           />
 

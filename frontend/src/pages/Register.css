@@ -1,0 +1,222 @@
+
+/* Register Page Background */
+#register-container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 20px;
+  background: linear-gradient(135deg, #101828, #263b55, #16263a);
+  font-family: "Poppins", sans-serif;
+}
+
+/* Register Card */
+#register-card {
+  width: 100%;
+  max-width: 450px;
+  padding: 40px;
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.3);
+  animation: registerAnimation 0.7s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Top Red Line */
+#register-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, #e63946, #ff7582, #e63946);
+}
+
+/* Heading */
+#register-title {
+  text-align: center;
+  color: #172033;
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin: 0 0 10px;
+}
+
+/* Subtitle */
+#register-subtitle {
+  text-align: center;
+  color: #7b8494;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+/* Register Form */
+#register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Input Groups */
+#name-group,
+#email-group,
+#password-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Labels */
+#name-group label,
+#email-group label,
+#password-group label {
+  color: #344054;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Input Fields */
+#register-name,
+#register-email,
+#register-password {
+  width: 100%;
+  height: 53px;
+  padding: 0 17px;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 12px;
+  outline: none;
+  background: #f8fafc;
+  color: #172033;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+/* Placeholder */
+#register-name::placeholder,
+#register-email::placeholder,
+#register-password::placeholder {
+  color: #9ca3af;
+}
+
+/* Input Focus */
+#register-name:focus,
+#register-email:focus,
+#register-password:focus {
+  border-color: #e63946;
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(230, 57, 70, 0.1);
+}
+
+/* Register Button */
+#register-button {
+  width: 100%;
+  height: 54px;
+  margin-top: 5px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #e63946, #c1121f);
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Button Hover */
+#register-button:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(230, 57, 70, 0.3);
+  background: linear-gradient(135deg, #c1121f, #e63946);
+}
+
+#register-button:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+#register-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Error Message */
+#register-error {
+  padding: 12px;
+  margin: 0;
+  background: #fff1f2;
+  color: #dc2626;
+  border: 1px solid #fecdd3;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 13px;
+}
+
+/* Success Message */
+#register-success {
+  padding: 12px;
+  margin: 0;
+  background: #ecfdf5;
+  color: #059669;
+  border: 1px solid #a7f3d0;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 13px;
+}
+
+/* Footer */
+#register-footer {
+  text-align: center;
+  margin-top: 25px;
+  color: #7b8494;
+  font-size: 14px;
+}
+
+/* Login Link */
+#login-link {
+  color: #e63946;
+  font-weight: 700;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+#login-link:hover {
+  color: #b91c1c;
+  text-decoration: underline;
+}
+
+/* Card Animation */
+@keyframes registerAnimation {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  #register-container {
+    padding: 20px 15px;
+  }
+
+  #register-card {
+    padding: 35px 23px;
+    border-radius: 19px;
+  }
+
+  #register-title {
+    font-size: 29px;
+  }
+
+  #register-subtitle {
+    font-size: 13px;
+  }
+}

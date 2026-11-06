@@ -1,0 +1,411 @@
+/* =========================================
+   PREMIUM CUSTOMER REVIEWS SECTION
+========================================= */
+
+.rv-section {
+  width: 100%;
+  max-width: 1250px;
+  margin: 65px auto 40px;
+  padding: 45px 40px;
+  background: #ffffff;
+  border-radius: 22px;
+  font-family: "Poppins", sans-serif;
+  color: #172033;
+  box-sizing: border-box;
+}
+
+/* Section Heading */
+
+.rv-title {
+  font-size: 30px;
+  font-weight: 700;
+  color: #172033;
+  margin: 0 0 12px;
+  letter-spacing: -0.7px;
+}
+
+.rv-title::after {
+  content: "";
+  display: block;
+  width: 65px;
+  height: 4px;
+  background: linear-gradient(90deg, #ef4444, #f59e0b);
+  border-radius: 10px;
+  margin-top: 12px;
+}
+
+/* Rating Summary */
+
+.rv-summary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  color: #64748b;
+  margin: 20px 0 30px;
+}
+
+.rv-summary strong {
+  font-size: 25px;
+  color: #172033;
+  font-weight: 700;
+}
+
+/* =========================================
+   WRITE REVIEW FORM
+========================================= */
+
+.rv-form {
+  background: linear-gradient(135deg, #fff7f7, #fffaf2);
+  border: 1px solid #fee2e2;
+  border-radius: 18px;
+  padding: 30px;
+  margin-bottom: 40px;
+}
+
+.rv-form h3 {
+  font-size: 21px;
+  font-weight: 700;
+  margin: 0 0 18px;
+  color: #172033;
+}
+
+.rv-pick {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 20px;
+}
+
+.rv-pick-btn {
+  border: none;
+  background: transparent;
+  padding: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.rv-pick-btn:hover {
+  transform: scale(1.2);
+}
+
+.rv-form textarea,
+.rv-edit-form textarea {
+  width: 100%;
+  min-height: 120px;
+  padding: 16px 18px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: #ffffff;
+  font-family: inherit;
+  font-size: 14px;
+  color: #172033;
+  outline: none;
+  resize: vertical;
+  box-sizing: border-box;
+  transition: all 0.25s ease;
+}
+
+.rv-form textarea:focus,
+.rv-edit-form textarea:focus {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.08);
+}
+
+.rv-form textarea::placeholder {
+  color: #94a3b8;
+}
+
+/* Submit Button */
+
+.rv-submit {
+  margin-top: 18px;
+  padding: 13px 28px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 5px 14px rgba(220, 38, 38, 0.18);
+  transition: all 0.3s ease;
+}
+
+.rv-submit:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 9px 20px rgba(220, 38, 38, 0.25);
+}
+
+.rv-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Login Message */
+
+.rv-login {
+  padding: 18px 22px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  color: #64748b;
+  font-size: 14px;
+  margin-bottom: 35px;
+}
+
+.rv-login a {
+  color: #dc2626;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.rv-login a:hover {
+  text-decoration: underline;
+}
+
+/* =========================================
+   REVIEWS LIST
+========================================= */
+
+.rv-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 25px;
+}
+
+/* Individual Review Card */
+
+.rv-item {
+  padding: 25px;
+  background: #ffffff;
+  border: 1px solid #e8edf3;
+  border-radius: 17px;
+  box-shadow: 0 5px 20px rgba(15, 23, 42, 0.04);
+  transition: all 0.3s ease;
+  min-width: 0;
+}
+
+.rv-item:hover {
+  transform: translateY(-5px);
+  border-color: #fecaca;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+}
+
+/* Review Header */
+
+.rv-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 18px;
+}
+
+.rv-head > div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.rv-head strong {
+  font-size: 16px;
+  font-weight: 700;
+  color: #172033;
+  word-break: break-word;
+}
+
+/* Stars */
+
+.rv-stars {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.rv-date {
+  font-size: 12px;
+  color: #94a3b8;
+  white-space: nowrap;
+  background: #f8fafc;
+  padding: 6px 10px;
+  border-radius: 20px;
+}
+
+/* Review Comment */
+
+.rv-comment {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #64748b;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+/* =========================================
+   EDIT / DELETE ACTIONS
+========================================= */
+
+.rv-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.rv-edit,
+.rv-delete,
+.rv-save,
+.rv-cancel {
+  padding: 9px 18px;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.rv-edit {
+  background: #eff6ff;
+  color: #2563eb;
+  border: 1px solid #bfdbfe;
+}
+
+.rv-edit:hover {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.rv-delete {
+  background: #fff1f2;
+  color: #e11d48;
+  border: 1px solid #fecdd3;
+}
+
+.rv-delete:hover {
+  background: #e11d48;
+  color: #ffffff;
+}
+
+.rv-save {
+  background: #16a34a;
+  color: #ffffff;
+  border: 1px solid #16a34a;
+}
+
+.rv-save:hover {
+  background: #15803d;
+}
+
+.rv-cancel {
+  background: #f1f5f9;
+  color: #475569;
+  border: 1px solid #e2e8f0;
+}
+
+.rv-cancel:hover {
+  background: #e2e8f0;
+}
+
+.rv-actions button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Edit Form */
+
+.rv-edit-form {
+  margin-top: 15px;
+}
+
+.rv-edit-form .rv-pick {
+  margin-bottom: 15px;
+}
+
+/* =========================================
+   ERROR / EMPTY / LOADING
+========================================= */
+
+.rv-error {
+  color: #dc2626;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 9px;
+  padding: 11px 14px;
+  font-size: 13px;
+  margin-top: 12px;
+}
+
+.rv-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 35px 20px;
+  background: #f8fafc;
+  border: 1px dashed #cbd5e1;
+  border-radius: 15px;
+  color: #64748b;
+  font-size: 14px;
+}
+
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 768px) {
+  .rv-section {
+    padding: 30px 20px;
+    margin-top: 40px;
+  }
+
+  .rv-title {
+    font-size: 25px;
+  }
+
+  .rv-list {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .rv-form {
+    padding: 22px 18px;
+  }
+
+  .rv-item {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .rv-section {
+    padding: 25px 14px;
+  }
+
+  .rv-title {
+    font-size: 22px;
+  }
+
+  .rv-head {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .rv-date {
+    align-self: flex-start;
+  }
+
+  .rv-submit {
+    width: 100%;
+  }
+
+  .rv-form h3 {
+    font-size: 18px;
+  }
+}

@@ -7,6 +7,9 @@ const cors = require("cors");
 const authRoute = require("./routes/authRoute");
 const productRoute = require("./routes/productRoute");
 const orderRoute = require("./routes/orderRoute");
+const testimonialRoute = require("./routes/testimonialRoute");
+const reviewRoute = require("./routes/reviewRoute");
+const subscriptionRoute = require("./routes/subscriptionRoute");
 
 const app = express();
 
@@ -20,7 +23,13 @@ app.use("/api", authRoute);
 
 app.use("/api/products", productRoute);
 
+app.use("/api/products", reviewRoute);
+
 app.use("/api/orders", orderRoute);
+
+app.use("/api/testimonials", testimonialRoute);
+
+app.use("/api/subscription", subscriptionRoute);
 
 app.get("/", (req, res) => {
   res.json({
